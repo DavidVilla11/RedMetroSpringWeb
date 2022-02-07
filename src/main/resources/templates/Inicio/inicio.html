@@ -1,0 +1,38 @@
+<html>
+	<head>
+	<style type="text/css">
+	
+	body{
+	display: grid;
+    text-align: center;
+    align-content: center;
+	}
+	
+	img{
+	width: 400px;
+	}
+	
+	a{
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: black;
+	Color: White;
+	width: 100px;
+	}
+	
+	
+	</style>
+	</head>
+	<body>
+		<h1>
+		<img alt="imagen spring" src="https://cutt.ly/OOZudVc">Bienvenido a Spring WEB desde una plantilla
+		</h1>
+		<div>		
+		<p th:text="'Recibe un saludo de: ' + ${saludoDavid}"></p>
+		<a th:href="@{/lineas}">Ver Lineas</a>
+		<a th:href="@{/rest/lineas}">Ver Rest Lineas</a>
+		<a th:href="@{/colores}">Ver Colores</a>
+		<a th:href="@{/rest/colores}">Ver Rest Colores</a>
+		</div>
+	</body>
+</html>

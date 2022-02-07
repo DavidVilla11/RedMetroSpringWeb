@@ -1,0 +1,73 @@
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<style type="text/css">
+		
+		table {
+		border-collapse: separate;
+	    font-family: Tahoma, Geneva, sans-serif;
+		}
+		table thead{
+		background-color:black;
+		color: white;  
+		}
+		table td {
+			padding: 15px;
+			text-align: center;
+		}
+		table thead td {
+			background-color: #54585d;
+			color: #ffffff;
+			font-weight: bold;
+			font-size: 13px;
+			border: 1px solid #54585d;
+		}
+		table tbody td {
+			color: #636363;
+			border: 1px solid #dddfe1;
+		}
+		
+		img{
+		height: 250px; 
+		width: 600px;
+		}
+		</style>
+	
+	    <title>Listar Lineas</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+	</head>
+	<body>
+		<h1>Mostrando la lista de lineas</h1>
+
+		<div th:switch="${lineas}">
+		    <h2 th:case="null">No hay lineas</h2>
+		    <div th:case="*">
+		            <h2>Lineas</h2>
+		            <table>
+		                <thead>
+		                    <tr>
+		                        <th>Codigo linea</th>
+		                        <th>Nombre corto</th>
+		                        <th>Nombre largo</th>
+		                        <th>Kilometros</th>
+		                        <th>Color</th>
+		                        <th>Imagen</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+						<tr th:each="listaLineas: ${lineas}">
+		                    <td th:text="${listaLineas.codigoLinea}"></td>
+		                    <td th:text="${listaLineas.nombreCorto}"></td>
+		                    <td th:text="${listaLineas.nombreLargo}"></td>
+		                    <td th:text="${listaLineas.kilometros}"></td>
+		                    <td th:text="${listaLineas.color}"></td>
+		                    <td><img th:src="${listaLineas.Url}"/></td>
+		                    <td><a th:href="@{/lineas/{codigo}/editar(codigo=${listaLineas.codigoLinea})}">Editar</a></td>
+		                    <td><a th:href="@{/lineas/{codigo}/borrar(codigo=${listaLineas.codigoLinea})}">Borrar</a></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		    </div>      
+		    <p><a href="/colores/crear">Crear color</a></p>
+		</div>
+	</body>
+</html>
